@@ -68,6 +68,16 @@ let remove_color i v c =
 
 exception Failed
 
+(* 10 *)
+
+let rec try_first f s =
+  if IntSet.is_empty s then raise (Failed) else
+  let i = IntSet.choose s in
+  try
+    f i
+  with 
+    Failed -> try_first f (IntSet.remove i s)
+
 
 
 (*
