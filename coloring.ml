@@ -63,7 +63,11 @@ let init_colors g k =
 let remove_color i v c =
   let s = StringMap.find v c in
   StringMap.add v (IntSet.remove i s) c
-    
+
+(* 9 *)
+
+exception Failed
+
 
 
 (*
