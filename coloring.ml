@@ -58,6 +58,12 @@ let init_colors g k =
     (fun s -> color_set k)
     g
 
+(* 8 *)
+
+let remove_color i v c =
+  let s = StringMap.find v c in
+  StringMap.add v (IntSet.remove i s) c
+    
 
 
 (*
