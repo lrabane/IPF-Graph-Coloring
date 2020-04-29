@@ -78,6 +78,10 @@ let rec try_first f s =
   with 
     Failed -> try_first f (IntSet.remove i s)
 
+(* 11 *)
+
+type coloring = int StringMap.t
+
 
 
 (*
