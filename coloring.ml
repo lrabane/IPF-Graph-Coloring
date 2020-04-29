@@ -23,15 +23,11 @@ let add_edge u v g =
 (* 3 *)
 
 let remove_vertex u g =
-  let g = StringMap.remove u g in
+  let g' = StringMap.remove u g in
   
-  StringMap.fold 
-    (fun k d a -> 
-      let s = StringSet.remove u d in
-      StringMap.add k s a
-    )
-    g
-    StringMap.empty
+  StringMap.map
+  (fun s -> StringSet.remove u s)
+  g'
 
 (* 4 *)    
 
