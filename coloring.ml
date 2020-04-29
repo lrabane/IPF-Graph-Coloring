@@ -47,6 +47,10 @@ let rec range a b =
 let color_set n =
   range 1 n
 
+(* 6 *)
+
+type disp_color = IntSet.t StringMap.t
+
 
 
 (*
