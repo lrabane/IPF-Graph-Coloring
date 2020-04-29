@@ -51,6 +51,13 @@ let color_set n =
 
 type disp_color = IntSet.t StringMap.t
 
+(* 7 *)
+
+let init_colors g k =
+  StringMap.map
+    (fun s -> color_set k)
+    g
+
 
 
 (*
