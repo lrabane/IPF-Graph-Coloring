@@ -32,3 +32,5 @@ author: Lucas Rabane
 10) On reprends l'algorithme présenté dans le sujet du projet et on l'écrit en OCaml
 
 11) On créé un simple type avec le type `int` et notre module `StringMap`.
+
+12) On choisit une couleur aléatoirement (`i`). On choisit un sommet (`v`) aléatoirement et on récupère ses voisins (`vn`).  On prend toutes les couleurs disponibles (de `c`), et si le sommet actuel (de la couleur, `v’`) est voisin du sommet choisi (`vn`) alors on enlève la couleur choisie (`i`) des couleurs possibles (`s’`). On passe récursivement sur la fonction avec le graphe d’entrée amputé du sommet choisi plus haut (`v`).
