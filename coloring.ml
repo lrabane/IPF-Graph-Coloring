@@ -82,15 +82,20 @@ let rec try_first f s =
 
 type coloring = int StringMap.t
 
-
-
-(*
-let my_graph =
-  let g = add_edge "f" "d" StringMap.empty in
-  let g = add_edge "f" "e" g in
-  let g = add_edge "d" "e" g in
-  let g = add_edge "d" "b" g in 
-  let g = add_edge "d" "a" g in
-  let g = add_edge "e" "a" g in
-  add_edge "a" "c" g
-*)
+(* 12 *)
+let rec color g c =
+  if StringMap.is_empty g = false then (* g non vide du coup on continue *)
+  let (v, vn) = StringMap.choose g in (* sommet v choisi, et vn ses neighbors *)
+  let traitement i =
+    let c' = StringMap.mapi ( (* on prend chaque couleur dispo *)
+        fun v' s' ->
+        if StringSet.mem v' vn (* si le sommet actuel [v'] est voisin du sommet v choisi plus haut *)
+        then IntSet.remove i s' (* => enlever cette couleur des couleurs possibles *)
+        else s' ) c in (* sinon on change rien *)
+    let g' = remove_vertex v g in (* on enleve le sommet v choisi plus haut, au graphe *)
+    StringMap.add v i (color g' c') (* et on applique la fonction color sur ce graphe resultant *)
+  in
+  let s = StringMap.find v c in 
+  try_first traitement s
+  else
+  StringMap.empty (* g vide pas de coloriage possible *)
