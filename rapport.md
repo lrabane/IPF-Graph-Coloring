@@ -33,4 +33,12 @@ author: Lucas Rabane
 
 11) On créé un simple type avec le type `int` et notre module `StringMap`.
 
-12) On choisit une couleur aléatoirement (`i`). On choisit un sommet (`v`) aléatoirement et on récupère ses voisins (`vn`).  On prend toutes les couleurs disponibles (de `c`), et si le sommet actuel (de la couleur, `v’`) est voisin du sommet choisi (`vn`) alors on enlève la couleur choisie (`i`) des couleurs possibles (`s’`). On passe récursivement sur la fonction avec le graphe d’entrée amputé du sommet choisi plus haut (`v`).
+12) Appel initial à la fonction `color` : 
+
+On choisit un sommet `v` avec ses voisins `vn`
+On récupère les couleurs disponibles du sommet `v` et on stocke ça dans `s`
+On démarre l’appel de la fonction `traitement` via la fonction `try_first`
+
+Ensuite dans `try_first` puis `traitement`
+
+On choisit une couleur aléatoirement (`i`) dans l’ensemble de couleurs disponibles du sommet v (passé en param). On prend chaque couleur ensuite, et si le sommet actuel à chaque fois (`v’`) est voisin (`vn`) de `v`, alors on enlève la couleur `i` des couleurs disponibles, et on applique la fonction `color` à nouveau sur le graphe d’entrée amputé du sommet choisi plus haut (`v`).
